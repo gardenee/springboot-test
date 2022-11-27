@@ -1,0 +1,11 @@
+{{>layouts/header}}
+
+<form action="/articles/create" method="post">
+    <label for="txt">제목</label><br>
+    <input id="txt" name="title" type="text"><br>
+    <label for="ta">내용</label><br>
+    <textarea id="ta" name="content"></textarea><br>
+    <button type="submit">제출</button>
+</form>
+
+{{>layouts/footer}}
