@@ -1,11 +1,9 @@
 package com.test.test.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name ="article")
 public class Article {
 
     @Id
@@ -16,6 +14,9 @@ public class Article {
     private String title;
     @Column
     private String content;
+
+    public Article() {
+    }
 
     public Article(Long id, String title, String content) {
         this.id = id;
