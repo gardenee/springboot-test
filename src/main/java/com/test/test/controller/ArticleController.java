@@ -3,6 +3,7 @@ package com.test.test.controller;
 import com.test.test.dto.ArticleForm;
 import com.test.test.repository.ArticleRepository;
 import com.test.test.entity.Article;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/articles")
 @Controller
+@Slf4j
 public class ArticleController {
 
     @Autowired
@@ -24,15 +26,15 @@ public class ArticleController {
 
     @PostMapping("/create")
     public String createArticle(ArticleForm form) {
-        System.out.println(form.toString());
+        log.info(form.toString());
 
         // 1. DTO 변환
         Article article = form.toEntity();
-        System.out.println(article.toString());
+        log.info(article.toString());
 
         // 2. Repository에게 Entitiy를 DB에 저장하게 함
         Article saved = articleRepository.save(article);
-        System.out.println(saved.toString());
+        log.info(saved.toString());
 
         return "";
     }
